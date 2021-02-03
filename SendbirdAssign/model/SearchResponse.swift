@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct Response:Codable {
+struct SearchResponse:Codable {
     var page:String
     var total:String
     var books:[Book]
+    
+    func totalValue() -> Int {
+        return Int(total) ?? 0
+    }
 }

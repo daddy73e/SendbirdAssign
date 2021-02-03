@@ -30,7 +30,7 @@ class ApiManager: NSObject {
     
     func reqSearchBook(name: String,
                        page:Int,
-                       completion: @escaping ([Book]?, String) -> Void) {
+                       completion: @escaping (SearchResponse?) -> Void) {
 
         let reqObj = ApiReqObj(path: .search,
                                query: name,
@@ -39,13 +39,13 @@ class ApiManager: NSObject {
         self.requestApi(request: reqObj.getRequest()) { (response) in
             if let jsonData = response {
                 let decoder = JSONDecoder()
-                if let response = try? decoder.decode(Response.self, from: jsonData) {
-                    completion(response.books, response.page)
+                if let response = try? decoder.decode(SearchResponse.self, from: jsonData) {
+                    completion(response)
                 } else {
-                    completion(nil, "")
+                    completion(nil)
                 }
             } else {
-                completion(nil, "")
+                completion(nil)
             }
         }
     }

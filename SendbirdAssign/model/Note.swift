@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Note {
+struct Note:Codable {
     var isbn13:String
     var content:String
 }
