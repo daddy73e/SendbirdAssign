@@ -41,3 +41,42 @@ extension UIImageView {
         
     }
 }
+
+
+extension UIViewController {
+    
+    func showAlertOk(title:String?,
+                     message:String,
+                     completion: (() -> Void)?) {
+        let title = title == nil ? "ALERT" : title
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            if let completion = completion {
+                completion()
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showAlertYN(title:String?,
+                     message:String,
+                     completion: ((Bool) -> Void)?) {
+        let title = title == nil ? "ALERT" : title
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "YES", style: .default, handler: { _ in
+            if let completion = completion {
+                completion(true)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "NO", style: .default, handler: { _ in
+            if let completion = completion {
+                completion(false)
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+}

@@ -85,8 +85,6 @@ class DBManager:NSObject {
     public func updateNote(note:Note,
                            completion: @escaping (Bool) -> Void) {
         let updateStatementString = "UPDATE Notes SET content = '\(note.content)' WHERE isbn13 = '\(note.isbn13)';"
-        
-        print(updateStatementString)
         var updateStatement: OpaquePointer?
         if sqlite3_prepare_v2(openDB(), updateStatementString, -1, &updateStatement, nil) ==
             SQLITE_OK {
@@ -105,7 +103,6 @@ class DBManager:NSObject {
                            completion: @escaping (Bool) -> Void) {
         let deleteStatementStirng = "DELETE FROM Notes WHERE isbn13 = '\(isbn13)'"
         var deleteStatement: OpaquePointer? = nil
-        print(deleteStatementStirng)
         if sqlite3_prepare_v2(openDB(), deleteStatementStirng, -1, &deleteStatement, nil) == SQLITE_OK {
             if sqlite3_step(deleteStatement) == SQLITE_DONE {
                 completion(true)
@@ -128,13 +125,6 @@ class DBManager:NSObject {
                 let key = sqlite3_column_int(queryStatement, 0)
                 let isbn13 = String(cString: sqlite3_column_text(queryStatement, 1))
                 let content = String(cString: sqlite3_column_text(queryStatement, 2))
-                print("")
-                print("--------------")
-                print("key | \(key)")
-                print("isbn13 | \(isbn13)")
-                print("content | \(content)")
-                print("--------------")
-                print("")
                 let note = Note(isbn13: isbn13, content: content)
                 notes.append(note)
             }
@@ -148,22 +138,13 @@ class DBManager:NSObject {
     
     public func readNote(isbn13:String, completion: @escaping (Note?) -> Void ) {
         let queryStatementString = "SELECT * FROM Notes WHERE isbn13 = '\(isbn13)';"
-        print(queryStatementString)
         var queryStatement: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(openDB(), queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             var note:Note?
             while sqlite3_step(queryStatement) == SQLITE_ROW {
-                let key = sqlite3_column_int(queryStatement, 0)
                 let isbn13 = String(cString: sqlite3_column_text(queryStatement, 1))
                 let content = String(cString: sqlite3_column_text(queryStatement, 2))
-                print("")
-                print("--------------")
-                print("key | \(key)")
-                print("isbn13 | \(isbn13)")
-                print("content | \(content)")
-                print("--------------")
-                print("")
                 note = Note(isbn13: isbn13, content: content)
             }
             completion(note)

@@ -10,6 +10,7 @@ import UIKit
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     private let searchController = UISearchController(searchResultsController: nil)
@@ -30,6 +31,10 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -65,6 +70,7 @@ class SearchViewController: UIViewController {
             if let response = result {
                 self.searchResponse = response
                 DispatchQueue.main.async {
+                    self.emptyView.isHidden = response.books.count != 0
                     if self.searchedText != searchText {
                         self.books.removeAll()
                         self.tableView.reloadData()
@@ -76,6 +82,11 @@ class SearchViewController: UIViewController {
                     self.searchedText = searchText
                     self.isFetching = false
                 }
+            } else {
+                self.showAlertOk(title: "Api Error",
+                                 message: "No response data",
+                                 completion: nil)
+                
             }
         }
     }
