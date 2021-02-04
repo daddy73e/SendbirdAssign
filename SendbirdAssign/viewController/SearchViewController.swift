@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
@@ -27,18 +27,28 @@ class SearchViewController: UIViewController {
             indicator.isHidden = !newVal
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue,
+                          sender: Any?) {
+        if segue.identifier == "showDetail" {
+            if let book = sender as? Book {
+                let destination = segue.destination as! DetailViewController
+                destination.isbn13 = book.isbn13
+            }
+        }
     }
     
     private func configView() {
@@ -50,7 +60,6 @@ class SearchViewController: UIViewController {
         searchBar.backgroundColor = .white
         searchBar.setValue("Cancel", forKey: "cancelButtonText")
         definesPresentationContext = true
-        
         navigationItem.title = "Search"
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
@@ -63,14 +72,20 @@ class SearchViewController: UIViewController {
                 return
             }
         }
+        if !connectedToNetwork() {
+            self.showAlertOk(title: "Network Error",
+                             message: "Check Network Status",
+                             completion: nil)
+            return
+        }
         
         self.isFetching = true
         ApiManager.instance.reqSearchBook(name: searchText,
                                           page: updatePage) { (result) in
-            if let response = result {
-                self.searchResponse = response
-                DispatchQueue.main.async {
-                    self.emptyView.isHidden = response.books.count != 0
+            DispatchQueue.main.async {
+                self.isFetching = false
+                if let response = result {
+                    self.searchResponse = response
                     if self.searchedText != searchText {
                         self.books.removeAll()
                         self.tableView.reloadData()
@@ -80,28 +95,19 @@ class SearchViewController: UIViewController {
                     self.tableView.reloadData()
                     self.updatedPage = Int(response.page) ?? 0
                     self.searchedText = searchText
-                    self.isFetching = false
+                    self.emptyView.isHidden = response.books.count != 0
+                } else {
+                    self.showAlertOk(title: "Api Error",
+                                     message: "No response data",
+                                     completion: nil)
+                    
                 }
-            } else {
-                self.showAlertOk(title: "Api Error",
-                                 message: "No response data",
-                                 completion: nil)
-                
-            }
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue,
-                          sender: Any?) {
-        if segue.identifier == "showDetail" {
-            if let book = sender as? Book {
-                let destination = segue.destination as! DetailViewController
-                destination.isbn13 = book.isbn13
             }
         }
     }
 }
 
+// MARK: - UISearchBarDelegate
 extension SearchViewController:UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else {
@@ -121,6 +127,7 @@ extension SearchViewController:UISearchBarDelegate {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension SearchViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.books.count
@@ -137,10 +144,9 @@ extension SearchViewController:UITableViewDataSource {
             return UITableViewCell()
         }
     }
-    
-    
 }
 
+// MARK: - UITableViewDelegate
 extension SearchViewController:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let book = books[indexPath.row]

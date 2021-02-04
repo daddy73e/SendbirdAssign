@@ -28,7 +28,7 @@ class ApiManager: NSObject {
         task.resume()
     }
     
-    func reqSearchBook(name: String,
+    public func reqSearchBook(name: String,
                        page:Int,
                        completion: @escaping (SearchResponse?) -> Void) {
 
@@ -50,7 +50,7 @@ class ApiManager: NSObject {
         }
     }
     
-    func reqDetailInfo(isbn13:String,
+    public func reqDetailInfo(isbn13:String,
                        completion: @escaping (Book?) -> Void) {
         let reqObj = ApiReqObj(path: .detail, query: isbn13, page: 0)
         self.requestApi(request: reqObj.getRequest()) { (response) in

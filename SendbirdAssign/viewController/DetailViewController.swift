@@ -9,6 +9,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    public var isbn13:String = ""
+    
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelSubtitle: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
@@ -23,9 +25,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var labelYear: UILabel!
     @IBOutlet weak var labelRating: UILabel!
     @IBOutlet weak var labelDesc: UILabel!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-    public var isbn13:String = ""
     private let placeHolder = "Please Enter Note"
+    private var isFetching:Bool = false {
+        willSet(newVal) {
+            indicator.isHidden = !newVal
+        }
+    }
     
     private var book:Book? {
         willSet(newVal) {
@@ -50,8 +57,7 @@ class DetailViewController: UIViewController {
             
         }
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -107,12 +113,27 @@ class DetailViewController: UIViewController {
     }
     
     private func loadDetailInfo(isbn13:String) {
+        if !connectedToNetwork() {
+            self.showAlertOk(title: "Network Error",
+                             message: "Check Network Status") {
+                self.navigationController?.popViewController(animated: true)
+            }
+            return
+        }
+        
+        isFetching = true
         ApiManager.instance.reqDetailInfo(isbn13: isbn13) { (book) in
-            if let book = book {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                self.isFetching = false
+                if let book = book {
                     self.book = book
+                } else {
+                    self.showAlertOk(title: "Api Error",
+                                     message: "No response data",
+                                     completion: nil)
                 }
             }
+            
         }
     }
     
@@ -141,6 +162,7 @@ class DetailViewController: UIViewController {
     }
 }
 
+// MARK: - UITextViewDelegate
 extension DetailViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {

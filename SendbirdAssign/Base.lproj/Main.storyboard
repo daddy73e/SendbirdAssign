@@ -161,7 +161,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="oo2-gT-Wb1">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="868"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1068"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ma-3n-w0W">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
@@ -201,23 +201,23 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XMk-wM-LFO">
-                                                <rect key="frame" x="0.0" y="160" width="414" height="120"/>
+                                                <rect key="frame" x="0.0" y="160" width="414" height="320"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="PLI-8p-iUt">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="320"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="PLI-8p-iUt" secondAttribute="trailing" id="4zg-l5-ufb"/>
-                                                    <constraint firstAttribute="height" constant="120" id="8w2-dT-3pO"/>
+                                                    <constraint firstAttribute="height" constant="320" id="8w2-dT-3pO"/>
                                                     <constraint firstItem="PLI-8p-iUt" firstAttribute="leading" secondItem="XMk-wM-LFO" secondAttribute="leading" id="S1H-ZL-rZq"/>
                                                     <constraint firstItem="PLI-8p-iUt" firstAttribute="top" secondItem="XMk-wM-LFO" secondAttribute="top" id="jde-WG-2tb"/>
                                                     <constraint firstAttribute="bottom" secondItem="PLI-8p-iUt" secondAttribute="bottom" id="rIW-pT-Q6v"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ET-iJ-IH2">
-                                                <rect key="frame" x="0.0" y="280" width="414" height="100"/>
+                                                <rect key="frame" x="0.0" y="480" width="414" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqx-OV-eIi">
                                                         <rect key="frame" x="10" y="5" width="394" height="46"/>
@@ -253,7 +253,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bwq-yX-g3g">
-                                                <rect key="frame" x="0.0" y="380" width="414" height="60"/>
+                                                <rect key="frame" x="0.0" y="580" width="414" height="60"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4T-7w-gP8">
                                                         <rect key="frame" x="10" y="10" width="394" height="40"/>
@@ -277,7 +277,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VnH-S6-chJ">
-                                                <rect key="frame" x="0.0" y="440" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="640" width="414" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="authors" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuX-NZ-Epp">
                                                         <rect key="frame" x="10" y="5" width="394" height="40"/>
@@ -295,7 +295,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3E1-Ko-im0">
-                                                <rect key="frame" x="0.0" y="490" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="690" width="414" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="publisher" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ow-lt-PZw">
                                                         <rect key="frame" x="10" y="5" width="394" height="40"/>
@@ -313,7 +313,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzt-Jt-5ke">
-                                                <rect key="frame" x="0.0" y="540" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="740" width="414" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Na-rv-C7g">
                                                         <rect key="frame" x="10" y="5" width="394" height="40"/>
@@ -331,7 +331,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ak-4f-xIQ">
-                                                <rect key="frame" x="0.0" y="590" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="790" width="414" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2P-6Z-bGN">
                                                         <rect key="frame" x="10" y="5" width="394" height="40"/>
@@ -349,7 +349,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifN-UT-vZa">
-                                                <rect key="frame" x="0.0" y="640" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="840" width="414" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVR-K5-Igf">
                                                         <rect key="frame" x="10" y="5" width="394" height="40"/>
@@ -367,7 +367,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="859-zp-ZDh">
-                                                <rect key="frame" x="0.0" y="690" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="890" width="414" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNm-7X-IDn">
                                                         <rect key="frame" x="10" y="5" width="394" height="40"/>
@@ -385,7 +385,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5y-jm-tVl">
-                                                <rect key="frame" x="0.0" y="740" width="414" height="128"/>
+                                                <rect key="frame" x="0.0" y="940" width="414" height="128"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="desc" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAX-0W-sXW">
                                                         <rect key="frame" x="10" y="10" width="394" height="108"/>
@@ -420,13 +420,18 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="KpQ-ic-BKh"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Nwc-BB-u0g"/>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ziv-Tb-RGT">
+                                <rect key="frame" x="384" y="832" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Fb-mn-qWj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Fb-mn-qWj" firstAttribute="bottom" secondItem="RzD-z2-hQX" secondAttribute="bottom" id="Soi-jB-zv3"/>
+                            <constraint firstItem="6Fb-mn-qWj" firstAttribute="bottom" secondItem="ziv-Tb-RGT" secondAttribute="bottom" constant="10" id="ZJ5-yd-4Uu"/>
                             <constraint firstItem="RzD-z2-hQX" firstAttribute="top" secondItem="6Fb-mn-qWj" secondAttribute="top" id="ZmN-rj-YKG"/>
                             <constraint firstItem="6Fb-mn-qWj" firstAttribute="trailing" secondItem="RzD-z2-hQX" secondAttribute="trailing" id="hBF-Fg-lyT"/>
+                            <constraint firstItem="6Fb-mn-qWj" firstAttribute="trailing" secondItem="ziv-Tb-RGT" secondAttribute="trailing" constant="10" id="ijC-vn-Bbc"/>
                             <constraint firstItem="RzD-z2-hQX" firstAttribute="leading" secondItem="6Fb-mn-qWj" secondAttribute="leading" id="tg1-RZ-EyF"/>
                         </constraints>
                     </view>
@@ -434,6 +439,7 @@
                     <connections>
                         <outlet property="btnUrl" destination="L4T-7w-gP8" id="ELx-ZN-Cyx"/>
                         <outlet property="imageView" destination="PLI-8p-iUt" id="B2a-ED-gzd"/>
+                        <outlet property="indicator" destination="ziv-Tb-RGT" id="TEJ-4K-bK3"/>
                         <outlet property="labelAuthor" destination="CuX-NZ-Epp" id="tKs-Yg-8Pw"/>
                         <outlet property="labelDesc" destination="HAX-0W-sXW" id="tcv-Cr-Cd6"/>
                         <outlet property="labelLanguage" destination="q2P-6Z-bGN" id="7FV-dv-Ypl"/>

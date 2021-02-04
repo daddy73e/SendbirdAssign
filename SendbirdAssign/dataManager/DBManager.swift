@@ -122,7 +122,6 @@ class DBManager:NSObject {
         if sqlite3_prepare_v2(openDB(), queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             var notes = [Note]()
             while sqlite3_step(queryStatement) == SQLITE_ROW {
-                let key = sqlite3_column_int(queryStatement, 0)
                 let isbn13 = String(cString: sqlite3_column_text(queryStatement, 1))
                 let content = String(cString: sqlite3_column_text(queryStatement, 2))
                 let note = Note(isbn13: isbn13, content: content)
