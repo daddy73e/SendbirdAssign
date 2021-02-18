@@ -9,12 +9,12 @@ import UIKit
 import Foundation
 import SystemConfiguration
 
-var imageCache = NSCache<AnyObject, AnyObject>()
-
 extension UIImageView {
     
     func loadImage(urlString: String, completion: @escaping () -> Void) {
-        if let cacheImage = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
+        
+        if let cacheImage = ImageCacheManager.instance.object(
+            forKey: urlString as AnyObject) as? UIImage {
             self.image = cacheImage
             return
         }
@@ -23,6 +23,7 @@ extension UIImageView {
             return
         }
         
+        self.image = UIImage(named: "logo")
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("Couldn't download image: ", error)
@@ -33,7 +34,8 @@ extension UIImageView {
                 return
             }
             if let image = UIImage(data: data) {
-                imageCache.setObject(image, forKey: urlString as AnyObject)
+                ImageCacheManager.instance.setObject(image,
+                                                     forKey: urlString as AnyObject)
                 DispatchQueue.main.async {
                     self.image = image
                     completion()

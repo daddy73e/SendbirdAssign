@@ -24,6 +24,7 @@
 		4B94E38C25C4310B003413A2 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B94E38B25C4310B003413A2 /* Note.swift */; };
 		4BAD112C25CA6BA0007FFB74 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAD112B25CA6BA0007FFB74 /* DetailViewController.swift */; };
 		4BAD113225CA8C49007FFB74 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAD113125CA8C49007FFB74 /* DBManager.swift */; };
+		4BAD2A7325DDF81700283D47 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAD2A7225DDF81700283D47 /* ImageCacheManager.swift */; };
 		4BAEECEF25C8EA5200671816 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAEECEE25C8EA5200671816 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		4B94E38B25C4310B003413A2 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		4BAD112B25CA6BA0007FFB74 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4BAD113125CA8C49007FFB74 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		4BAD2A7225DDF81700283D47 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		4BAEECEE25C8EA5200671816 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				4BAD113125CA8C49007FFB74 /* DBManager.swift */,
+				4BAD2A7225DDF81700283D47 /* ImageCacheManager.swift */,
 			);
 			path = dataManager;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				4B5C4E7D25C98AE10056CAB5 /* SearchTableViewCell.swift in Sources */,
 				4B263C7425C78C38009ECF7D /* SearchResponse.swift in Sources */,
 				4BAEECEF25C8EA5200671816 /* Extension.swift in Sources */,
+				4BAD2A7325DDF81700283D47 /* ImageCacheManager.swift in Sources */,
 				4B94E35025C42947003413A2 /* AppDelegate.swift in Sources */,
 				4B263C6225C778D5009ECF7D /* ApiManager.swift in Sources */,
 				4B94E35225C42947003413A2 /* SceneDelegate.swift in Sources */,
