@@ -10,7 +10,7 @@ class ImageCacheManager:NSObject {
     
     static let instance = { () -> NSCache<AnyObject, AnyObject> in
         let cache = NSCache<AnyObject, AnyObject>()
-        cache.totalCostLimit = 50
+        cache.countLimit = 50
         return cache
     }()
 
